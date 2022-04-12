@@ -7,6 +7,15 @@ from sqlalchemy import create_engine
 from eralchemy import render_er
 
 Base = declarative_base()
+class Product(Base):
+    __tablename__ = 'producto'
+    # Here we define columns for the table person
+    # Notice that each column is also a normal Python instance attribute.
+    id = Column(Integer, primary_key=True)
+    name = Column(String(250), nullable=False, unique=True)
+    pricing = Column(Integer, nullable=False)
+    weight = Column(Integer, nullable=False)
+    color = Column(String(250), nullable=False)
 
 class Person(Base):
     __tablename__ = 'person'
